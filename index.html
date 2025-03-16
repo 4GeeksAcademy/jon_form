@@ -1,65 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+   
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    
+    
+    <title>Payment Form</title>
+  </head>
+
+  <body>
+    <!-- 
+      6) .container => Clase de Bootstrap que centra el contenido 
+         y establece un ancho máximo en pantallas grandes.
+         my-4 => Añade un margen vertical (arriba y abajo) de tamaño 4 
+                 para que la tarjeta no quede pegada al borde superior o inferior.
+    -->
     <div class="container my-4">
-        <!-- Tarjeta que envuelve el formulario -->
-        <div class="card shadow-sm">
+      
+      <!-- 
+        7) .card => Crea un contenedor con bordes redondeados y un fondo blanco.
+           .shadow-sm => Aplica una sombra ligera alrededor de la tarjeta.
+      -->
+      <div class="card shadow-sm">
+        
+        <!-- 
+          8) .card-header => Sección superior de la tarjeta (normalmente un encabezado).
+             Suele usarse para el título o un subtítulo del formulario.
+        -->
+        <div class="card-header">
+          <!-- 
+            h3.card-title.mb-0 => Encabezado (h3) con la clase card-title de Bootstrap
+            y mb-0 (margin-bottom: 0) para que no tenga margen inferior extra.
+          -->
+          <h3 class="card-title mb-0">Payment form example</h3>
+        </div>
+
+        <!-- 
+          9) .card-body => Zona principal de contenido dentro de la tarjeta.
+        -->
+        <div class="card-body">
           
-          <!-- Encabezado de la tarjeta -->
-          <div class="card-header">
-            <h3 class="card-title mb-0">Payment form example</h3>
+          <!-- 
+            10) .alert.alert-danger => Un recuadro rojo que muestra un mensaje de error.
+                role="alert" => Atributo de accesibilidad para lectores de pantalla.
+          -->
+          <div class="alert alert-danger" role="alert">
+            Some fields are missing
           </div>
-          
-          <!-- Cuerpo de la tarjeta -->
-          <div class="card-body">
+
+          <!-- 
+            11) Aquí comienza el formulario. 
+                - class="row g-3 needs-validation" => 
+                  .row => Activa el sistema de rejilla (grid) de Bootstrap.
+                  .g-3 => Añade un "gap" (espacio) de 3 unidades entre columnas y filas.
+                  .needs-validation => Se usa para validaciones personalizadas de Bootstrap (opcional).
+                - novalidate => Desactiva la validación nativa del navegador, 
+                               
+          -->
+          <form class="row g-3 needs-validation" novalidate>
             
-            <!-- Alerta de error (si aplica) -->
-            <div class="alert alert-danger" role="alert">
-              Some fields are missing
+            
+            <div class="col-md-6">
+              <label for="cardNumber" class="form-label">Card #</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cardNumber"
+                placeholder="XXXXXXXXXXXXXX"
+                required
+              >
             </div>
-            
-            <!-- Formulario  -->
-            <form class="row g-3 needs-validation" novalidate>
-              <div class="col-md-4">
-                <label for="cardNumber" class="form-label">Card #</label>
-                <input type="text" class="form-control" id="cardNumber" placeholder="XXXXXXXXXXXXXX" required>
+
+            <div class="col-md-3">
+              <label for="cvc" class="form-label">CVC #</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cvc"
+                placeholder="0000"
+                required
+              >
+            </div>
+
+            <div class="col-md-3">
+              <label for="amount" class="form-label">Amount</label>
+              
+              <div class="input-group">
+                <!-- .input-group-text => Caja que muestra texto (en este caso, el símbolo $). -->
+                <span class="input-group-text">$</span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="amount"
+                  required
+                >
               </div>
-              <div class="col-md-4">
-                <label for="cvc" class="form-label">CVC #</label>
-                <input type="text" class="form-control" id="cvc" placeholder="0000" required>
-              </div>
-              <div class="col-md-4">
-                <label for="amount" class="form-label">Amount</label>
-                <div class="input-group">
-                  <span class="input-group-text">$</span>
-                  <input type="number" class="form-control" id="amount" required>
+            </div>
+
+            <!-- 
+              13) Segunda "fila":
+                  - First Name => col-md-6
+                  - Last Name => col-md-6
+              
+              De nuevo suman 12 columnas (6 + 6).
+            -->
+            <div class="col-md-6">
+              <label for="name" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                required
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label for="last" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="last"
+                required
+              >
+            </div>
+
+            <!-- 
+              14) Tercera "fila":
+                  - City => col-md-6
+                  - State => col-md-3
+                  - Postal Code => col-md-3
+              
+              De nuevo 6 + 3 + 3 = 12 columnas.
+            -->
+            <div class="col-md-6">
+              <label for="city" class="form-label">City</label>
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                required
+              >
+            </div>
+
+            <div class="col-md-3">
+              <label for="exampleSt" class="form-label">State</label>
+              <select class="form-select" id="exampleSt" required>
+                <option value="">Pick a state</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <!-- ... resto de estados ... -->
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+
+            <div class="col-md-3">
+              <label for="postal" class="form-label">Postal Code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="postal"
+                required
+              >
+            </div>
+
+            <!-- 
+              15) Fila separada (dentro del mismo .row general, pero anidada):
+                  - "We accept" => col-md-3
+                  - offset-md-3 => 3 columnas vacías a la derecha del primero
+                  - "Message" => col-md-6 (sumando offset + 6 = 9, más 3 del "We accept" = 12)
+              
+              => col-md-3 + offset-md-3 + col-md-6 = 12 columnas totales.
+            -->
+            <div class="row g-3">
+              <!-- 
+                col-md-3 => "We accept" ocupará 3 columnas exactas en pantallas medianas o mayores.
+              -->
+              <div class="col-md-3">
+                <label class="form-label d-block">We accept:</label>
+                <!-- 
+                  p-2 => padding interno de tamaño 2 
+                  bg-secondary => fondo gris
+                  text-white => texto (e íconos) en blanco
+                -->
+                <div class="p-2 bg-secondary text-white">
+                  <!-- 
+                    Cada radio está dentro de form-check form-check-inline me-3 
+                    para que se vean en línea y separados un poco a la derecha (margin-end).
+                  -->
+                  <div class="form-check form-check-inline me-3">
+                    <input 
+                      class="form-check-input" 
+                      type="radio" 
+                      name="paymentOptions" 
+                      id="radioVisa" 
+                      value="visa" 
+                      checked
+                    >
+                    <!-- 
+                      Label vinculado al input con for="radioVisa".
+                      Dentro ponemos el ícono de Visa: <i class="fab fa-cc-visa"></i>
+                    -->
+                    <label class="form-check-label" for="radioVisa">
+                      <i class="fab fa-cc-visa"></i>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline me-3">
+                    <input 
+                      class="form-check-input" 
+                      type="radio" 
+                      name="paymentOptions" 
+                      id="radioMaster" 
+                      value="master"
+                    >
+                    <label class="form-check-label" for="radioMaster">
+                      <i class="fab fa-cc-mastercard"></i>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline me-3">
+                    <input 
+                      class="form-check-input" 
+                      type="radio" 
+                      name="paymentOptions" 
+                      id="radioDiners" 
+                      value="diners"
+                    >
+                    <label class="form-check-label" for="radioDiners">
+                      <i class="fab fa-cc-diners-club"></i>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input 
+                      class="form-check-input" 
+                      type="radio" 
+                      name="paymentOptions" 
+                      id="radioAmex" 
+                      value="amex"
+                    >
+                    <label class="form-check-label" for="radioAmex">
+                      <i class="fab fa-cc-amex"></i>
+                    </label>
+                  </div>
                 </div>
               </div>
-              
-              <!-- Agrega aquí más campos como First Name, Last Name, City, etc. -->
-              
-              <div class="col-12">
+
+              <!-- 
+                offset-md-3 => Deja 3 columnas vacías entre la primera col (We accept) y esta.
+                col-md-6 => Esta columna ocupa 6 columnas para "Message".
+                Total en la fila: 3 (We accept) + 3 (offset) + 6 (Message) = 12
+              -->
+              <div class="col-md-6 offset-md-3">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="3" placeholder="Add any notes here..."></textarea>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="4"
+                  placeholder="Add any notes here..."
+                ></textarea>
               </div>
-            </form>
-            
-          </div> <!-- fin card-body -->
+            </div>
+            <!-- Fin de la fila "We accept" y "Message" -->
+
+          </form>
+          <!-- Fin del formulario -->
+        </div> <!-- fin card-body -->
+
+        <!-- 
+          16) .card-footer => Pie de la tarjeta, donde colocamos los botones de acción.
+          text-end => Alinea el contenido (botones) a la derecha.
+        -->
+        <div class="card-footer text-end">
+          <!-- 
+            Botón "Cancel":
+            type="button" => No envía el formulario,
+            .btn.btn-secondary => estilo gris.
+            me-2 => margen a la derecha de tamaño 2.
+          -->
+          <button type="button" class="btn btn-secondary me-2">Cancel</button>
           
-          <!-- Pie de la tarjeta (para los botones) -->
-          <div class="card-footer text-end">
-            <button type="button" class="btn btn-secondary me-2">Cancel</button>
-            <button type="submit" class="btn btn-primary">Send</button>
-          </div>
-          
-        </div> <!-- fin card -->
-      </div>
-      
+          <!-- 
+            Botón "Send":
+            type="submit" => Envía el formulario (si está dentro del form).
+            .btn.btn-primary => estilo azul de Bootstrap.
+          -->
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+
+      </div> <!-- fin card -->
+    </div> <!-- fin container -->
+
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
+</html>
