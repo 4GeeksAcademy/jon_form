@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container my-4">
+        <!-- Tarjeta que envuelve el formulario -->
+        <div class="card shadow-sm">
+          
+          <!-- Encabezado de la tarjeta -->
+          <div class="card-header">
+            <h3 class="card-title mb-0">Payment form example</h3>
+          </div>
+          
+          <!-- Cuerpo de la tarjeta -->
+          <div class="card-body">
+            
+            <!-- Alerta de error (si aplica) -->
+            <div class="alert alert-danger" role="alert">
+              Some fields are missing
+            </div>
+            
+            <!-- Formulario  -->
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-md-4">
+                <label for="cardNumber" class="form-label">Card #</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="XXXXXXXXXXXXXX" required>
+              </div>
+              <div class="col-md-4">
+                <label for="cvc" class="form-label">CVC #</label>
+                <input type="text" class="form-control" id="cvc" placeholder="0000" required>
+              </div>
+              <div class="col-md-4">
+                <label for="amount" class="form-label">Amount</label>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <input type="number" class="form-control" id="amount" required>
+                </div>
+              </div>
+              
+              <!-- Agrega aquí más campos como First Name, Last Name, City, etc. -->
+              
+              <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Add any notes here..."></textarea>
+              </div>
+            </form>
+            
+          </div> <!-- fin card-body -->
+          
+          <!-- Pie de la tarjeta (para los botones) -->
+          <div class="card-footer text-end">
+            <button type="button" class="btn btn-secondary me-2">Cancel</button>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+          
+        </div> <!-- fin card -->
+      </div>
+      
